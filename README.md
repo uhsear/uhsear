@@ -24,6 +24,8 @@ python <tool>.py --self-test
 | [**agol-relink**](https://github.com/uhsear/agol-relink) | Bulk-replace REST service URLs across Portal content, including the StoryMap and Experience Builder drafts other tools miss. |
 | [**hostedreap**](https://github.com/uhsear/hostedreap) | Delete hosted feature layer rows that no longer exist in your source. Backup first, dry run by default. |
 | [**fullpull**](https://github.com/uhsear/fullpull) | Download every layer of a REST service into a File Geodatabase, verified against the server's own record count. |
+| [**whobreaks**](https://github.com/uhsear/whobreaks) | Every item referencing the one you are about to delete, including the Experience Builder drafts a dependency graph never opens. |
+| [**ghostsvc**](https://github.com/uhsear/ghostsvc) | Services the server runs but the portal never registered. They answer anonymously and appear in no sharing report. |
 
 ### Geodatabase
 
@@ -34,6 +36,7 @@ python <tool>.py --self-test
 | [**gdbxray**](https://github.com/uhsear/gdbxray) | Print the schema `ogrinfo` will not show you: subtypes, attribute rules, attachment linkage. |
 | [**gdbprune**](https://github.com/uhsear/gdbprune) | Delete stale leaf versions from a versioned Enterprise geodatabase, printing the plan first. |
 | [**arcade-rule-deploy**](https://github.com/uhsear/arcade-rule-deploy) | Deploy Arcade attribute rules, preflight-checked and idempotent. Resolves every `FeatureSetByName` before writing. |
+| [**arcadecheck**](https://github.com/uhsear/arcadecheck) | Inventory every Arcade expression you own and say which ones can leave with you. |
 
 ### Data quality
 
@@ -43,6 +46,8 @@ python <tool>.py --self-test
 | [**tzrot**](https://github.com/uhsear/tzrot) | Find date fields reinterpreted as UTC, and count the records whose calendar day moved. |
 | [**roadmiles**](https://github.com/uhsear/roadmiles) | Certify centerline mileage and refuse to count the same road twice, including the copy digitized backwards. |
 | [**arcpy-nullscan**](https://github.com/uhsear/arcpy-nullscan) | Report NULL and blank values across every layer and standalone table in a map, including null geometry. |
+| [**nalmatch**](https://github.com/uhsear/nalmatch) | Reconcile a parcel layer against the tax roll. Refuses any ID rule that would merge two parcels into one key. |
+| [**svcdrift**](https://github.com/uhsear/svcdrift) | Diff a published service against the dataset it came from, rather than calling two different schemas the same. |
 
 ### Developer tooling
 
