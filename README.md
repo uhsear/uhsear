@@ -1,8 +1,7 @@
 ## Asir Khan
 
-GIS developer for a Florida county. I write scripts and tools for ArcGIS shops, and
-increasingly for people working with spatial data and no Esri licence at all. Most of
-them exist to refuse something.
+GIS developer for a Florida county. I write scripts and tools for everyone to use, and
+increasingly for people working within the GIS community.
 
 They are single-file Python, MIT licensed. Each one guards a specific production
 failure I have watched happen, and the README opens by describing that failure rather
