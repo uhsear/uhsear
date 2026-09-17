@@ -1,7 +1,8 @@
 ## Asir Khan
 
 GIS developer for a Florida county. I write scripts and tools for ArcGIS shops, and
-most of them exist to refuse something.
+increasingly for people working with spatial data and no Esri licence at all. Most of
+them exist to refuse something.
 
 They are single-file Python, MIT licensed. Each one guards a specific production
 failure I have watched happen, and the README opens by describing that failure rather
