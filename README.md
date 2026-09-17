@@ -22,7 +22,7 @@ until the tool actually reaches a geodatabase or a portal. Three do not: `fullpu
 `sightline` need their library present even to self-test, and `arcpy-nullscan` is an
 older script with no self-test at all.
 
-The other twenty-five are standard library only and run anywhere Python 3 does. That
+The other twenty-six are standard library only and run anywhere Python 3 does. That
 includes two that read Esri formats without Esri software: `cimscan` parses `.aprx` and
 `.lyrx` with no ArcGIS installed, and `gdbxray` reads a geodatabase schema through GDAL.
 
@@ -65,6 +65,7 @@ includes two that read Esri formats without Esri software: `cimscan` parses `.ap
 | [**pl94**](https://github.com/uhsear/pl94) | Read the Census PL 94-171 file for any US county, refusing a block extract that does not reconcile to the county total. |
 | [**fcpatch**](https://github.com/uhsear/fcpatch) | Apply reviewed attribute corrections, refusing any row whose current value is no longer the value that was reviewed. |
 | [**nalmatch**](https://github.com/uhsear/nalmatch) | Reconcile a parcel layer against the tax roll. Refuses any ID rule that would merge two parcels into one key. |
+| [**idreuse**](https://github.com/uhsear/idreuse) | Measure how far apart two rows sharing an ID actually are. A key that matches is not evidence they are the same object. |
 | [**svcdrift**](https://github.com/uhsear/svcdrift) | Diff a published service against the dataset it came from, rather than calling two different schemas the same. |
 
 ### Developer tooling
