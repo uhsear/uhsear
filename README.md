@@ -13,16 +13,16 @@ Most carry a `--self-test` you can run before trusting the tool:
 python <tool>.py --self-test
 ```
 
-**Ten need an Esri library to run** (`arcpy` or the `arcgis` Python API): agol-relink,
-arcade-rule-deploy, arcpy-nullscan, fcload, fullpull, gdbprune, hostedreap,
+**Eleven need an Esri library to run** (`arcpy` or the `arcgis` Python API): agol-relink,
+arcade-rule-deploy, arcpy-nullscan, fcload, fcpatch, fullpull, gdbprune, hostedreap,
 safe-republish, sightline, svcdrift.
 
-Seven of those ten still run their self-test without one, because the import is deferred
+Eight of those eleven still run their self-test without one, because the import is deferred
 until the tool actually reaches a geodatabase or a portal. Three do not: `fullpull` and
 `sightline` need their library present even to self-test, and `arcpy-nullscan` is an
 older script with no self-test at all.
 
-The other seventeen are standard library only and run anywhere Python 3 does. That
+The other twenty-five are standard library only and run anywhere Python 3 does. That
 includes two that read Esri formats without Esri software: `cimscan` parses `.aprx` and
 `.lyrx` with no ArcGIS installed, and `gdbxray` reads a geodatabase schema through GDAL.
 
@@ -60,6 +60,10 @@ includes two that read Esri formats without Esri software: `cimscan` parses `.ap
 | [**tzrot**](https://github.com/uhsear/tzrot) | Find date fields reinterpreted as UTC, and count the records whose calendar day moved. |
 | [**roadmiles**](https://github.com/uhsear/roadmiles) | Certify centerline mileage and refuse to count the same road twice, including the copy digitized backwards. |
 | [**arcpy-nullscan**](https://github.com/uhsear/arcpy-nullscan) | Report NULL and blank values across every layer and standalone table in a map, including null geometry. |
+| [**ringwind**](https://github.com/uhsear/ringwind) | Name every GeoJSON ring wound against your declared convention. A backwards ring makes point-in-polygon answer backwards. |
+| [**sidestamp**](https://github.com/uhsear/sidestamp) | Check what is stamped on each side of a centerline against the polygon that side fronts, and prove the sides are not reversed. |
+| [**pl94**](https://github.com/uhsear/pl94) | Read the Census PL 94-171 file for any US county, refusing a block extract that does not reconcile to the county total. |
+| [**fcpatch**](https://github.com/uhsear/fcpatch) | Apply reviewed attribute corrections, refusing any row whose current value is no longer the value that was reviewed. |
 | [**nalmatch**](https://github.com/uhsear/nalmatch) | Reconcile a parcel layer against the tax roll. Refuses any ID rule that would merge two parcels into one key. |
 | [**svcdrift**](https://github.com/uhsear/svcdrift) | Diff a published service against the dataset it came from, rather than calling two different schemas the same. |
 
@@ -72,6 +76,8 @@ includes two that read Esri formats without Esri software: `cimscan` parses `.ap
 | [**cimscan**](https://github.com/uhsear/cimscan) | Report every data source in a tree of `.aprx` and `.lyrx` files with no ArcGIS licence. |
 | [**gdbfence**](https://github.com/uhsear/gdbfence) | Refuse the commit that puts a geodatabase, or a shapefile missing its `.prj`, into git. |
 | [**jobharness**](https://github.com/uhsear/jobharness) | One import gives a scheduled script logging, retry, resume and a safe unzip. Standard library only. |
+| [**logsift**](https://github.com/uhsear/logsift) | Mine a scheduled job's own logs into metrics, refusing the number that is really a timestamp. |
+| [**litswap**](https://github.com/uhsear/litswap) | Rename a string constant across a tree of scripts without touching one comment or docstring. |
 
 ### Operations
 
@@ -79,6 +85,9 @@ includes two that read Esri formats without Esri software: `cimscan` parses `.ap
 |---|---|
 | [**svcguard**](https://github.com/uhsear/svcguard) | Guarantee an ArcGIS Server service restarts around risky maintenance, even on failure. |
 | [**taskpulse**](https://github.com/uhsear/taskpulse) | Audit every Windows scheduled task and report which ones are silently failing. |
+| [**stalehost**](https://github.com/uhsear/stalehost) | Find every file still naming the host you are retiring, and never call a tree clean it could not finish reading. |
+| [**svcsource**](https://github.com/uhsear/svcsource) | Report what is behind every service on an ArcGIS Server site, and say which ones it could not resolve. |
+| [**prostall**](https://github.com/uhsear/prostall) | Diagnose why ArcGIS Pro is slow here, measure every answer, and never record a crashed probe as a finding. |
 
 ---
 
