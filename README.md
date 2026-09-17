@@ -1,16 +1,30 @@
 ## Asir Khan
 
-GIS developer for a Florida county. I write small, single-purpose Python tools for
-ArcGIS shops, and most of them exist to refuse something.
+GIS developer for a Florida county. I write scripts and tools for ArcGIS shops, and
+most of them exist to refuse something.
 
-Every repository here follows the same shape: one Python file, one README, MIT. Each
-one guards a specific production failure I have watched happen. Destructive operations
-are dry-run by default. Every tool carries a `--self-test` that runs with no ArcGIS, no
-network and no database, so you can check it before you trust it:
+They are single-file Python, MIT licensed. Each one guards a specific production
+failure I have watched happen, and the README opens by describing that failure rather
+than the feature list. Anything destructive is dry-run by default and needs `--apply`.
+
+Most carry a `--self-test` you can run before trusting the tool:
 
 ```
 python <tool>.py --self-test
 ```
+
+**Ten need an Esri library to run** (`arcpy` or the `arcgis` Python API): agol-relink,
+arcade-rule-deploy, arcpy-nullscan, fcload, fullpull, gdbprune, hostedreap,
+safe-republish, sightline, svcdrift.
+
+Seven of those ten still run their self-test without one, because the import is deferred
+until the tool actually reaches a geodatabase or a portal. Three do not: `fullpull` and
+`sightline` need their library present even to self-test, and `arcpy-nullscan` is an
+older script with no self-test at all.
+
+The other seventeen are standard library only and run anywhere Python 3 does. That
+includes two that read Esri formats without Esri software: `cimscan` parses `.aprx` and
+`.lyrx` with no ArcGIS installed, and `gdbxray` reads a geodatabase schema through GDAL.
 
 ---
 
