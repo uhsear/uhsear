@@ -13,16 +13,16 @@ Most carry a `--self-test` you can run before trusting the tool:
 python <tool>.py --self-test
 ```
 
-**Eleven need an Esri library to run** (`arcpy` or the `arcgis` Python API): agol-relink,
+**Twelve need an Esri library to run** (`arcpy` or the `arcgis` Python API): agol-relink,
 arcade-rule-deploy, arcpy-nullscan, fcload, fcpatch, fullpull, gdbprune, hostedreap,
-safe-republish, sightline, svcdrift.
+safe-republish, sightline, svcdrift, whowrites, xydrift.
 
-Eight of those eleven still run their self-test without one, because the import is deferred
+Ten of those twelve still run their self-test without one, because the import is deferred
 until the tool actually reaches a geodatabase or a portal. Three do not: `fullpull` and
 `sightline` need their library present even to self-test, and `arcpy-nullscan` is an
 older script with no self-test at all.
 
-The other twenty-six are standard library only and run anywhere Python 3 does. That
+The other thirty are standard library only and run anywhere Python 3 does. That
 includes two that read Esri formats without Esri software: `cimscan` parses `.aprx` and
 `.lyrx` with no ArcGIS installed, and `gdbxray` reads a geodatabase schema through GDAL.
 
@@ -66,6 +66,8 @@ includes two that read Esri formats without Esri software: `cimscan` parses `.ap
 | [**fcpatch**](https://github.com/uhsear/fcpatch) | Apply reviewed attribute corrections, refusing any row whose current value is no longer the value that was reviewed. |
 | [**nalmatch**](https://github.com/uhsear/nalmatch) | Reconcile a parcel layer against the tax roll. Refuses any ID rule that would merge two parcels into one key. |
 | [**idreuse**](https://github.com/uhsear/idreuse) | Measure how far apart two rows sharing an ID actually are. A key that matches is not evidence they are the same object. |
+| [**xydrift**](https://github.com/uhsear/xydrift) | Name the rows whose stored coordinate columns disagree with their own geometry, and resync only those. |
+| [**feedstamp**](https://github.com/uhsear/feedstamp) | Refuse to run the pipeline when the delivery is not a new, complete one. Yesterday's file is still a file. |
 | [**svcdrift**](https://github.com/uhsear/svcdrift) | Diff a published service against the dataset it came from, rather than calling two different schemas the same. |
 
 ### Developer tooling
@@ -76,6 +78,9 @@ includes two that read Esri formats without Esri software: `cimscan` parses `.ap
 | [**pytlint**](https://github.com/uhsear/pytlint) | Static analysis for Python toolboxes. Never imports the file it checks. |
 | [**cimscan**](https://github.com/uhsear/cimscan) | Report every data source in a tree of `.aprx` and `.lyrx` files with no ArcGIS licence. |
 | [**gdbfence**](https://github.com/uhsear/gdbfence) | Refuse the commit that puts a geodatabase, or a shapefile missing its `.prj`, into git. |
+| [**clonedrift**](https://github.com/uhsear/clonedrift) | Name every script on a share that exists in more than one version, and say what the versions disagree about. |
+| [**alwayszero**](https://github.com/uhsear/alwayszero) | Name every unattended script that cannot report failure. Task Scheduler has said 0x0 for four years. |
+| [**whowrites**](https://github.com/uhsear/whowrites) | Name every script that empties a feature class, and never name a reader as the thing that destroyed it. |
 | [**jobharness**](https://github.com/uhsear/jobharness) | One import gives a scheduled script logging, retry, resume and a safe unzip. Standard library only. |
 | [**logsift**](https://github.com/uhsear/logsift) | Mine a scheduled job's own logs into metrics, refusing the number that is really a timestamp. |
 | [**litswap**](https://github.com/uhsear/litswap) | Rename a string constant across a tree of scripts without touching one comment or docstring. |
