@@ -13,16 +13,16 @@ Most carry a `--self-test` you can run before trusting the tool:
 python <tool>.py --self-test
 ```
 
-**Twelve need an Esri library to run** (`arcpy` or the `arcgis` Python API): agol-relink,
+**Thirteen need an Esri library to run** (`arcpy` or the `arcgis` Python API): agol-relink,
 arcade-rule-deploy, arcpy-nullscan, fcload, fcpatch, fullpull, gdbprune, hostedreap,
 safe-republish, sightline, svcdrift, whowrites, xydrift.
 
-Ten of those twelve still run their self-test without one, because the import is deferred
+Ten of those thirteen still run their self-test without one, because the import is deferred
 until the tool actually reaches a geodatabase or a portal. Three do not: `fullpull` and
 `sightline` need their library present even to self-test, and `arcpy-nullscan` is an
 older script with no self-test at all.
 
-The other thirty are standard library only and run anywhere Python 3 does. That
+The other twenty-nine are standard library only and run anywhere Python 3 does. That
 includes two that read Esri formats without Esri software: `cimscan` parses `.aprx` and
 `.lyrx` with no ArcGIS installed, and `gdbxray` reads a geodatabase schema through GDAL.
 
