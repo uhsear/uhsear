@@ -17,12 +17,16 @@ python <tool>.py --self-test
 arcade-rule-deploy, arcpy-nullscan, fcload, fcpatch, fullpull, gdbprune, hostedreap,
 safe-republish, sightline, svcdrift, whowrites, xydrift.
 
+Three of them also have a read-only mode that needs no Esri library: `fcload check`
+reads a shapefile's header and `.prj`, `gdbprune --from-versions` reads an exported version
+list, and `xydrift --from-geojson` reads GeoJSON.
+
 Ten of those thirteen still run their self-test without one, because the import is deferred
 until the tool actually reaches a geodatabase or a portal. Three do not: `fullpull` and
 `sightline` need their library present even to self-test, and `arcpy-nullscan` is an
 older script with no self-test at all.
 
-The other twenty-nine are standard library only and run anywhere Python 3 does. That
+The other thirty-one are standard library only and run anywhere Python 3 does. That
 includes two that read Esri formats without Esri software: `cimscan` parses `.aprx` and
 `.lyrx` with no ArcGIS installed, and `gdbxray` reads a geodatabase schema through GDAL.
 
@@ -39,6 +43,7 @@ includes two that read Esri formats without Esri software: `cimscan` parses `.ap
 | [**hostedreap**](https://github.com/uhsear/hostedreap) | Delete hosted feature layer rows that no longer exist in your source. Backup first, dry run by default. |
 | [**fullpull**](https://github.com/uhsear/fullpull) | Download every layer of a REST service into a File Geodatabase, verified against the server's own record count. |
 | [**whobreaks**](https://github.com/uhsear/whobreaks) | Every item referencing the one you are about to delete, including the Experience Builder drafts a dependency graph never opens. |
+| [**deadwidget**](https://github.com/uhsear/deadwidget) | Find the Experience Builder widgets bound to a layer that no longer exists. The app loads fine and the widget does nothing. |
 | [**ghostsvc**](https://github.com/uhsear/ghostsvc) | Services the server runs but the portal never registered. They answer anonymously and appear in no sharing report. |
 
 ### Geodatabase
@@ -49,6 +54,7 @@ includes two that read Esri formats without Esri software: `cimscan` parses `.ap
 | [**fcload**](https://github.com/uhsear/fcload) | Load a dataset into a geodatabase, refusing the imports that corrupt silently. |
 | [**gdbxray**](https://github.com/uhsear/gdbxray) | Print the schema `ogrinfo` will not show you: subtypes, attribute rules, attachment linkage. |
 | [**gdbprune**](https://github.com/uhsear/gdbprune) | Delete stale leaf versions from a versioned Enterprise geodatabase, printing the plan first. |
+| [**compressfloor**](https://github.com/uhsear/compressfloor) | Name what holds a geodatabase's compress floor: a detached replica, a stalled replica, a pinned version or an orphaned state. |
 | [**arcade-rule-deploy**](https://github.com/uhsear/arcade-rule-deploy) | Deploy Arcade attribute rules, preflight-checked and idempotent. Resolves every `FeatureSetByName` before writing. |
 | [**arcadecheck**](https://github.com/uhsear/arcadecheck) | Inventory every Arcade expression you own and say which ones can leave with you. |
 
