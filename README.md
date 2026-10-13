@@ -26,7 +26,7 @@ until the tool actually reaches a geodatabase or a portal. Three do not: `fullpu
 `sightline` need their library present even to self-test, and `arcpy-nullscan` is an
 older script with no self-test at all.
 
-The other thirty-one are standard library only and run anywhere Python 3 does. That
+The other forty-four are standard library only and run anywhere Python 3 does. That
 includes two that read Esri formats without Esri software: `cimscan` parses `.aprx` and
 `.lyrx` with no ArcGIS installed, and `gdbxray` reads a geodatabase schema through GDAL.
 
@@ -45,6 +45,9 @@ includes two that read Esri formats without Esri software: `cimscan` parses `.ap
 | [**whobreaks**](https://github.com/uhsear/whobreaks) | Every item referencing the one you are about to delete, including the Experience Builder drafts a dependency graph never opens. |
 | [**deadwidget**](https://github.com/uhsear/deadwidget) | Find the Experience Builder widgets bound to a layer that no longer exists. The app loads fine and the widget does nothing. |
 | [**ghostsvc**](https://github.com/uhsear/ghostsvc) | Services the server runs but the portal never registered. They answer anonymously and appear in no sharing report. |
+| [**itemvault**](https://github.com/uhsear/itemvault) | Restore an item's configuration from a snapshot, and refuse to overwrite an edit that no snapshot holds. |
+| [**sdcheck**](https://github.com/uhsear/sdcheck) | Read a staged service definition before you publish it, and flag a raw host name or a copied dataset inside it. |
+| [**locdiff**](https://github.com/uhsear/locdiff) | Diff two locator files and fail when the rebuild lost a matching setting, such as "Match with no zones". |
 
 ### Geodatabase
 
@@ -57,6 +60,21 @@ includes two that read Esri formats without Esri software: `cimscan` parses `.ap
 | [**compressfloor**](https://github.com/uhsear/compressfloor) | Name what holds a geodatabase's compress floor: a detached replica, a stalled replica, a pinned version or an orphaned state. |
 | [**arcade-rule-deploy**](https://github.com/uhsear/arcade-rule-deploy) | Deploy Arcade attribute rules, preflight-checked and idempotent. Resolves every `FeatureSetByName` before writing. |
 | [**arcadecheck**](https://github.com/uhsear/arcadecheck) | Inventory every Arcade expression you own and say which ones can leave with you. |
+| [**replicakeep**](https://github.com/uhsear/replicakeep) | Plan, then repair under `--apply`, an idle replica that may hold the compress floor. Compress still exits 0. |
+| [**reconverify**](https://github.com/uhsear/reconverify) | Verify a no-post reconcile from a fresh read of the state tree, never from the process that ran it. |
+| [**xwddiff**](https://github.com/uhsear/xwddiff) | Classify the diff between two XML workspace documents as BREAKING, WIDENING or COSMETIC. |
+
+### SQL Server behind the geodatabase
+
+All of these read exported catalog or `msdb` rows. None opens a connection to a server.
+
+| | |
+|---|---|
+| [**evwlint**](https://github.com/uhsear/evwlint) | Flag the views, procedures, triggers and Agent job steps that read a versioned base table instead of its `_evw` view. |
+| [**sdeindex**](https://github.com/uhsear/sdeindex) | Plan or audit an index cleanup. Refuses to drop both copies of an identical pair, or half of an adds and deletes twin. |
+| [**bkpbase**](https://github.com/uhsear/bkpbase) | Say whether a restorable full backup exists, refusing snapshot and copy-only rows. |
+| [**stepflow**](https://github.com/uhsear/stepflow) | Flag Agent job steps that can never run, watchdogs that find their job by name, and runs far past their normal length. |
+| [**sessorigin**](https://github.com/uhsear/sessorigin) | Give a verdict after a database alias flip, and never report MIGRATED while a node still holds old sessions. |
 
 ### Data quality
 
@@ -75,6 +93,7 @@ includes two that read Esri formats without Esri software: `cimscan` parses `.ap
 | [**xydrift**](https://github.com/uhsear/xydrift) | Name the rows whose stored coordinate columns disagree with their own geometry, and resync only those. |
 | [**feedstamp**](https://github.com/uhsear/feedstamp) | Refuse to run the pipeline when the delivery is not a new, complete one. Yesterday's file is still a file. |
 | [**svcdrift**](https://github.com/uhsear/svcdrift) | Diff a published service against the dataset it came from, rather than calling two different schemas the same. |
+| [**sliverkeep**](https://github.com/uhsear/sliverkeep) | Drop the sliver parts of a polygon layer, but keep every part that holds an address point. |
 
 ### Developer tooling
 
@@ -100,6 +119,7 @@ includes two that read Esri formats without Esri software: `cimscan` parses `.ap
 | [**stalehost**](https://github.com/uhsear/stalehost) | Find every file still naming the host you are retiring, and never call a tree clean it could not finish reading. |
 | [**svcsource**](https://github.com/uhsear/svcsource) | Report what is behind every service on an ArcGIS Server site, and say which ones it could not resolve. |
 | [**prostall**](https://github.com/uhsear/prostall) | Diagnose why ArcGIS Pro is slow here, measure every answer, and never record a crashed probe as a finding. |
+| [**nodecheck**](https://github.com/uhsear/nodecheck) | Check install prerequisites from a node table. A requirement nobody could check is UNVERIFIED, never PASS. |
 
 ---
 
