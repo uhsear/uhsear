@@ -26,7 +26,7 @@ until the tool actually reaches a geodatabase or a portal. Three do not: `fullpu
 `sightline` need their library present even to self-test, and `arcpy-nullscan` is an
 older script with no self-test at all.
 
-The other forty-four are standard library only and run anywhere Python 3 does. That
+The other fifty-five are standard library only and run anywhere Python 3 does. That
 includes two that read Esri formats without Esri software: `cimscan` parses `.aprx` and
 `.lyrx` with no ArcGIS installed, and `gdbxray` reads a geodatabase schema through GDAL.
 
@@ -48,6 +48,10 @@ includes two that read Esri formats without Esri software: `cimscan` parses `.ap
 | [**itemvault**](https://github.com/uhsear/itemvault) | Restore an item's configuration from a snapshot, and refuse to overwrite an edit that no snapshot holds. |
 | [**sdcheck**](https://github.com/uhsear/sdcheck) | Read a staged service definition before you publish it, and flag a raw host name or a copied dataset inside it. |
 | [**locdiff**](https://github.com/uhsear/locdiff) | Diff two locator files and fail when the rebuild lost a matching setting, such as "Match with no zones". |
+| [**exbtwin**](https://github.com/uhsear/exbtwin) | Write an Experience Builder fix to both of the app's config surfaces, refuse when either is not what you expect, and read both back. |
+| [**rendergap**](https://github.com/uhsear/rendergap) | Count the rows a unique-value renderer draws with a `<Null>` class, or with no class and no default symbol. |
+| [**formwatch**](https://github.com/uhsear/formwatch) | Tell a broken Survey123 form from a quiet one. Refuses to judge a seasonal form in its first year. |
+| [**stalled**](https://github.com/uhsear/stalled) | Count the days since a scheduled notebook or webhook last succeeded, and say so when the count is too high. |
 
 ### Geodatabase
 
@@ -63,10 +67,11 @@ includes two that read Esri formats without Esri software: `cimscan` parses `.ap
 | [**replicakeep**](https://github.com/uhsear/replicakeep) | Plan, then repair under `--apply`, an idle replica that may hold the compress floor. Compress still exits 0. |
 | [**reconverify**](https://github.com/uhsear/reconverify) | Verify a no-post reconcile from a fresh read of the state tree, never from the process that ran it. |
 | [**xwddiff**](https://github.com/uhsear/xwddiff) | Classify the diff between two XML workspace documents as BREAKING, WIDENING or COSMETIC. |
+| [**spidxcheck**](https://github.com/uhsear/spidxcheck) | Compare the spatial index box, the stored extent and the real data envelope, and say which one is wrong. |
 
 ### SQL Server behind the geodatabase
 
-All of these read exported catalog or `msdb` rows. None opens a connection to a server.
+These read exported catalog rows, `msdb` rows or script files. Only sqldeploy connects to a server, and only under `--apply`.
 
 | | |
 |---|---|
@@ -75,6 +80,10 @@ All of these read exported catalog or `msdb` rows. None opens a connection to a 
 | [**bkpbase**](https://github.com/uhsear/bkpbase) | Say whether a restorable full backup exists, refusing snapshot and copy-only rows. |
 | [**stepflow**](https://github.com/uhsear/stepflow) | Flag Agent job steps that can never run, watchdogs that find their job by name, and runs far past their normal length. |
 | [**sessorigin**](https://github.com/uhsear/sessorigin) | Give a verdict after a database alias flip, and never report MIGRATED while a node still holds old sessions. |
+| [**sqlmove**](https://github.com/uhsear/sqlmove) | One read-only verdict on a geodatabase moved to another instance: orphaned users, ownerless jobs, names that no longer resolve. |
+| [**wmguard**](https://github.com/uhsear/wmguard) | Flag a sync watermark taken from a table whose MAX froze, or moved past rows nobody applied. |
+| [**txnlint**](https://github.com/uhsear/txnlint) | Find the T-SQL transaction mistakes that only show when you read a script across its `GO` batches. |
+| [**sqldeploy**](https://github.com/uhsear/sqldeploy) | Preview a T-SQL deploy script one `GO` batch at a time, and run it only on `--apply` after every batch parsed. |
 
 ### Data quality
 
@@ -120,6 +129,8 @@ All of these read exported catalog or `msdb` rows. None opens a connection to a 
 | [**svcsource**](https://github.com/uhsear/svcsource) | Report what is behind every service on an ArcGIS Server site, and say which ones it could not resolve. |
 | [**prostall**](https://github.com/uhsear/prostall) | Diagnose why ArcGIS Pro is slow here, measure every answer, and never record a crashed probe as a finding. |
 | [**nodecheck**](https://github.com/uhsear/nodecheck) | Check install prerequisites from a node table. A requirement nobody could check is UNVERIFIED, never PASS. |
+| [**svcparity**](https://github.com/uhsear/svcparity) | Put a service's pool, instance and maxRecordCount settings back after an overwrite publish, and say when it cannot. |
+| [**svcsmoke**](https://github.com/uhsear/svcsmoke) | Sample every service repeatedly, state the chance the sampling missed a fault, and pass only on real features or image bytes. |
 
 ---
 
