@@ -26,7 +26,9 @@ until the tool actually reaches a geodatabase or a portal. Three do not: `fullpu
 `sightline` need their library present even to self-test, and `arcpy-nullscan` is an
 older script with no self-test at all.
 
-The other fifty-five are standard library only and run anywhere Python 3 does. That
+One needs `pyproj`: datumcheck asks PROJ which operation it chose.
+
+The other seventy-five are standard library only and run anywhere Python 3 does. That
 includes two that read Esri formats without Esri software: `cimscan` parses `.aprx` and
 `.lyrx` with no ArcGIS installed, and `gdbxray` reads a geodatabase schema through GDAL.
 
@@ -52,6 +54,8 @@ includes two that read Esri formats without Esri software: `cimscan` parses `.ap
 | [**rendergap**](https://github.com/uhsear/rendergap) | Count the rows a unique-value renderer draws with a `<Null>` class, or with no class and no default symbol. |
 | [**formwatch**](https://github.com/uhsear/formwatch) | Tell a broken Survey123 form from a quiet one. Refuses to judge a seasonal form in its first year. |
 | [**stalled**](https://github.com/uhsear/stalled) | Count the days since a scheduled notebook or webhook last succeeded, and say so when the count is too high. |
+| [**portalcopy**](https://github.com/uhsear/portalcopy) | Read two portals after a content copy, and prove that ids, relationships and resume state resolve in the new one. Every request is a GET. |
+| [**renderport**](https://github.com/uhsear/renderport) | Convert an ArcGIS layer renderer to MapLibre style layers, and refuse every symbology approximation instead of drawing it. |
 
 ### Geodatabase
 
@@ -68,6 +72,8 @@ includes two that read Esri formats without Esri software: `cimscan` parses `.ap
 | [**reconverify**](https://github.com/uhsear/reconverify) | Verify a no-post reconcile from a fresh read of the state tree, never from the process that ran it. |
 | [**xwddiff**](https://github.com/uhsear/xwddiff) | Classify the diff between two XML workspace documents as BREAKING, WIDENING or COSMETIC. |
 | [**spidxcheck**](https://github.com/uhsear/spidxcheck) | Compare the spatial index box, the stored extent and the real data envelope, and say which one is wrong. |
+| [**relorphan**](https://github.com/uhsear/relorphan) | Find attachments and related rows whose parent feature is gone. A braced and a bare GlobalID count as the same id. |
+| [**keydelta**](https://github.com/uhsear/keydelta) | Plan a keyed delta between two snapshots instead of delete-all and insert-all, and hold back every key two rows share. Plans only. |
 
 ### SQL Server behind the geodatabase
 
@@ -103,6 +109,17 @@ These read exported catalog rows, `msdb` rows or script files. Only sqldeploy co
 | [**feedstamp**](https://github.com/uhsear/feedstamp) | Refuse to run the pipeline when the delivery is not a new, complete one. Yesterday's file is still a file. |
 | [**svcdrift**](https://github.com/uhsear/svcdrift) | Diff a published service against the dataset it came from, rather than calling two different schemas the same. |
 | [**sliverkeep**](https://github.com/uhsear/sliverkeep) | Drop the sliver parts of a polygon layer, but keep every part that holds an address point. |
+| [**triage-carry-forward**](https://github.com/uhsear/triage-carry-forward) | Carry reviewer marks into the next QA cycle by a content fingerprint, so a renumbered OID does not lose them. |
+| [**parceldiff**](https://github.com/uhsear/parceldiff) | Diff two vintages of a parcel layer on a key, and refuse a key that cannot carry the diff. |
+| [**blockfit**](https://github.com/uhsear/blockfit) | Refuse a block-to-district assignment that does not reconcile to its block extract, or uses the wrong block vintage. |
+| [**areatruth**](https://github.com/uhsear/areatruth) | Explain a wrong stored acreage by the shape of the error. |
+| [**joinproof**](https://github.com/uhsear/joinproof) | Prove a left join before you trust it: a class that came back NULL, repeated left keys, sentinel values. |
+| [**floodshift**](https://github.com/uhsear/floodshift) | Refuse to call a re-digitized flood zone line a flood zone change. |
+| [**exemptguard**](https://github.com/uhsear/exemptguard) | Block a statutorily exempt address from a published dataset, checked against a hashed roster. |
+| [**datumcheck**](https://github.com/uhsear/datumcheck) | Exit non-zero when PROJ picks a null-shift datum operation, and state the error in US survey feet and acres. |
+| [**zdatum**](https://github.com/uhsear/zdatum) | Check lidar heights against the vertical datum the header claims, using a reference surface you supply. |
+| [**nodatalie**](https://github.com/uhsear/nodatalie) | Compare stored raster statistics with recomputed ones, and name the NoData value that explains the gap. |
+| [**mbunpack**](https://github.com/uhsear/mbunpack) | Unpack an MBTiles file into a z/x/y folder, naming every tile by what its bytes are. |
 
 ### Developer tooling
 
@@ -118,6 +135,9 @@ These read exported catalog rows, `msdb` rows or script files. Only sqldeploy co
 | [**jobharness**](https://github.com/uhsear/jobharness) | One import gives a scheduled script logging, retry, resume and a safe unzip. Standard library only. |
 | [**logsift**](https://github.com/uhsear/logsift) | Mine a scheduled job's own logs into metrics, refusing the number that is really a timestamp. |
 | [**litswap**](https://github.com/uhsear/litswap) | Rename a string constant across a tree of scripts without touching one comment or docstring. |
+| [**deadcheck**](https://github.com/uhsear/deadcheck) | Prove each registered check can fire, by mutating a stub. A check that cannot fail keeps a test suite green. |
+| [**importprobe**](https://github.com/uhsear/importprobe) | Reproduce the context a scheduled task runs a script in, such as no console and a shadowing user site, and give a verdict. |
+| [**pacguard**](https://github.com/uhsear/pacguard) | Wrap the Power Platform `pac` CLI: check by default, refuse abbreviated flags, and push a Copilot Studio agent only on `--push --apply`. |
 
 ### Operations
 
@@ -131,6 +151,9 @@ These read exported catalog rows, `msdb` rows or script files. Only sqldeploy co
 | [**nodecheck**](https://github.com/uhsear/nodecheck) | Check install prerequisites from a node table. A requirement nobody could check is UNVERIFIED, never PASS. |
 | [**svcparity**](https://github.com/uhsear/svcparity) | Put a service's pool, instance and maxRecordCount settings back after an overwrite publish, and say when it cannot. |
 | [**svcsmoke**](https://github.com/uhsear/svcsmoke) | Sample every service repeatedly, state the chance the sampling missed a fault, and pass only on real features or image bytes. |
+| [**taskfreeze**](https://github.com/uhsear/taskfreeze) | Disable scheduled tasks for a maintenance window, then turn back on exactly the ones it turned off, and no others. |
+| [**taskorder**](https://github.com/uhsear/taskorder) | Tell "the refresh never ran" from "nothing changed", from a run history and the order your tasks should run in. |
+| [**failstorm**](https://github.com/uhsear/failstorm) | Hold the mails about a failure storm, so the one mail that matters is not lost in the rest. |
 
 ---
 
