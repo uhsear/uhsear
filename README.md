@@ -26,9 +26,10 @@ until the tool actually reaches a geodatabase or a portal. Three do not: `fullpu
 `sightline` need their library present even to self-test, and `arcpy-nullscan` is an
 older script with no self-test at all.
 
-One needs `pyproj`: datumcheck asks PROJ which operation it chose.
+Two need `pyproj`: datumcheck asks PROJ which operation it chose, and ng911topo also
+needs `shapely` 2 to test polygon overlaps and gaps.
 
-The other seventy-five are standard library only and run anywhere Python 3 does. That
+The other seventy-seven are standard library only and run anywhere Python 3 does. That
 includes two that read Esri formats without Esri software: `cimscan` parses `.aprx` and
 `.lyrx` with no ArcGIS installed, and `gdbxray` reads a geodatabase schema through GDAL.
 
@@ -56,6 +57,7 @@ includes two that read Esri formats without Esri software: `cimscan` parses `.ap
 | [**stalled**](https://github.com/uhsear/stalled) | Count the days since a scheduled notebook or webhook last succeeded, and say so when the count is too high. |
 | [**portalcopy**](https://github.com/uhsear/portalcopy) | Read two portals after a content copy, and prove that ids, relationships and resume state resolve in the new one. Every request is a GET. |
 | [**renderport**](https://github.com/uhsear/renderport) | Convert an ArcGIS layer renderer to MapLibre style layers, and refuse every symbology approximation instead of drawing it. |
+| [**batchflip**](https://github.com/uhsear/batchflip) | Swap a hosted table's contents in one visible step: stage the new batch beside the old one, then flip which batch readers see. |
 
 ### Geodatabase
 
@@ -120,6 +122,8 @@ These read exported catalog rows, `msdb` rows or script files. Only sqldeploy co
 | [**zdatum**](https://github.com/uhsear/zdatum) | Check lidar heights against the vertical datum the header claims, using a reference surface you supply. |
 | [**nodatalie**](https://github.com/uhsear/nodatalie) | Compare stored raster statistics with recomputed ones, and name the NoData value that explains the gap. |
 | [**mbunpack**](https://github.com/uhsear/mbunpack) | Unpack an MBTiles file into a z/x/y folder, naming every tile by what its bytes are. |
+| [**ng911check**](https://github.com/uhsear/ng911check) | Run documented NG9-1-1 address and centerline checks from a CSV, and refuse to let a settings line silently switch a routing error off. |
+| [**ng911topo**](https://github.com/uhsear/ng911topo) | Find response-area overlaps, coverage gaps and unsplit boundary crossings, and tell a gap from an enclave drawn on purpose. |
 
 ### Developer tooling
 
