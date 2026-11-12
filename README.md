@@ -1,7 +1,7 @@
 ## Asir Khan
 
-GIS developer for a Florida county. I write scripts and tools for everyone to use, and
-increasingly for people working within the GIS community.
+GIS developer for a Florida county. I write single-purpose Python tools for the ArcGIS Online,
+ArcGIS Enterprise and SQL Server geodatabase problems that rarely make a demo: 92 of them so far.
 
 They are single-file Python, MIT licensed. Each one guards a specific production
 failure I have watched happen, and the README opens by describing that failure rather
